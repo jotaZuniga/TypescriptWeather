@@ -8,22 +8,34 @@ import thunderstroms from '../images/thunderstroms.png';
 import snow from '../images/snow.png';
 import foggy from '../images/foggy.png';
 
-// TODO: Create the interface of Weather Response
-
-export interface WeatherResponse {
-
+interface IWeather {
+    id: number;
+    main: string;
+    description: string;
+    icon: string;
+}
+interface IWind {
+    speed: number;
+    deg: number;
+    gust: number
 }
 
-interface Wind {
-
+interface IMain {
+    temp: number;
+    feels_like: number;
+    temp_min: number;
+    temp_max: number;
+    pressure: number;
+    humidity: number;
 }
 
-interface Weather {
-
-}
-
-interface Main {
-
+export interface WeatherRS {
+    weather: [IWeather];
+    base: string;
+    main: IMain;
+    visibility: number;
+    wind: IWind;
+    name: string;
 }
 
 export const WeatherIcon = {
@@ -46,15 +58,5 @@ export const WeatherIcon = {
     "50d": foggy,
     "50n": foggy,
 } as const;
-
-export const DayOfWeek = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday"
-];
 
 export type WeatherIcontype = keyof typeof WeatherIcon;
