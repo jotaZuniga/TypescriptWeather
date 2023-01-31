@@ -9,7 +9,7 @@
         "moduleResolution": "node",
         "target": "es5",
         "allowJs": true,
-        "downlevelIteration": true
+        "downlevelIteration": true,
     },
     "include": [
         "./src/**/*",
